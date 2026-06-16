@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Post{
+  id String @id @default(ulid())
+  title String
+  description String @db.VarChar(255)
+  createdAt DateTime @default(now())
+}
