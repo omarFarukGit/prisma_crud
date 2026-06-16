@@ -32,4 +32,23 @@ app.post('/post',async(req,res)=>{
     }
 })
 
+app.get('/post/:id',async(req,res)=>{
+        try {
+        const result=await prisma.post.findMany({
+            where:{
+                id:'01KV80D0474GGN5CZH1C32F3S7'
+            }
+        })
+
+        res.status(201).json({
+            success:true,
+            message:'post created sucessfully',
+            data:result
+        })
+
+    } catch (error) {
+        
+    }
+})
+
 export default app;
